@@ -214,7 +214,7 @@ const getErrorMessage = code => {
  * Use: .sort()
  */
 const get2SmallestValues = numbers => {
-    return numbers.sort((a, b) => a - b).slice(0, 2)
+    return [...numbers].sort((a, b) => a - b).slice(0, 2)
 };
 
 
@@ -324,7 +324,7 @@ const getSmallestColumn = numbers => {
  * [4,3,2,1] => [4,3]
  */
 const get2BiggestValues = numbers => {
-    return numbers.sort((a, b) => b - a).slice(0, 2)
+    return [...numbers].sort((a, b) => b - a).slice(0, 2)
 };
 
 
@@ -427,3 +427,28 @@ const getNotUniqueValues = numbers => {
 };
 
 
+module.exports = {
+    getOddValues,
+    getSmallestValue,
+    getBiggestValue,
+    getShorterStrings,
+    getComputedStrings,
+    mergeObjects,
+    getSmallestValue2,
+    getOddValues2,
+    calculateTotal,
+    getUniqueValues,
+    getErrorMessage,
+    get2SmallestValues,
+    getFullName,
+    multiplyTo,
+    getCharacterNames,
+    getSmallestRow,
+    getSmallestColumn,
+    get2BiggestValues,
+    getNumberOfVowels,
+    getCapitalizedStrings,
+    getCorrectString,
+    getFlattenedArray,
+    getNotUniqueValues
+};
