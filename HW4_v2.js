@@ -117,7 +117,7 @@ const mergeObjects = objects => {
  * Use: operator ... and Math.min
  */
 const getSmallestValue2 = numbers => {
-    return numbers.length > 0 ? Math.min(...numbers) : undefined
+    return numbers.length ? Math.min(...numbers) : undefined
 };
 
 
@@ -152,7 +152,7 @@ const getOddValues2 = numbers => {
  * Use: reduce
  */
 const calculateTotal = products => {
-    return products.reduce((total, item) => total + item.price * item.count, 0)
+    return products.reduce((total, item) => total + (item.price * item.count), 0)
 };
 
 
@@ -165,7 +165,7 @@ const calculateTotal = products => {
  * Use: reduce and indexOf
  */
 const getUniqueValues = numbers => {
-    return numbers.reduce((array, value, index) => numbers.indexOf(value) === index ? [...array, value] : array, [])
+    return numbers.reduce((array, value) => array.indexOf(value) === -1 ? [...array, value] : array, [])
 };
 
 
@@ -265,8 +265,8 @@ const multiplyTo = (numbers, multiplier) => {
  */
 const getCharacterNames = (characters, franchise) => {
     return characters
-        .filter(character => character.franchise === franchise)
-        .map(character => character.name)
+        .filter(hero => hero.franchise === franchise)
+        .map(hero => hero.name)
         .join(', ')
 };
 
@@ -306,7 +306,7 @@ const getSmallestColumn = numbers => {
 
     numbers.forEach(row => {
         row.forEach((num, index) =>
-            (num < result_column[index] || (!result_column[index]))
+            (num < result_column[index] || (result_column[index] === undefined))
                 ? result_column[index] = num
                 : null)
     })
@@ -342,6 +342,7 @@ const getNumberOfVowels = string => {
                 : count
             , 0)
 };
+
 
 /**
  * Exercise 20
@@ -419,7 +420,6 @@ const getNotUniqueValues = numbers => {
             : array
         , [])
 };
-
 
 module.exports = {
     getOddValues,
