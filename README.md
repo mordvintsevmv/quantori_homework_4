@@ -56,12 +56,12 @@ conditions were set under which the task would be considered successfully comple
 To fulfill all the criteria, more than 100 autotests have been developed using the Jest library, 
 which check all the necessary conditions.
 
+---
+
 ### <a name="solutions-exercises">Exercises</a>
 
 For some functions, no conditions were set for specific values. 
-Therefore, it was decided to develop various exceptions and perform some additional checks.
-
-Learn more about the various solutions:
+Therefore, it was decided to develop various exceptions and perform some additional checks by myself.
 
 ---
 
@@ -104,7 +104,7 @@ In case of an empty array, `undefined` is returned
 **Example:**
 ```javascript
 ...
-    return numbers.length > 0 ? Math.min(...numbers) : undefined
+    return numbers.length ? Math.min(...numbers) : undefined
 ...
 ```
 
@@ -163,9 +163,9 @@ return [...numbers].sort...
 All tests are presented in the `tests/functions.test.js` file.
 
 **Almost every test checks the conditions:**
-- Example values;
-- Empty values;
-- Boundary Values;
+- Call function with example values;
+- Call function with empty values;
+- Call function with boundary Values;
 - Function is pure.
 
 All implemented tests were successfully passed:
