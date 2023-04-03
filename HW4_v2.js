@@ -24,7 +24,7 @@
  * [1,2,3,4] => [1,3]
  */
 const getOddValues = numbers => {
-    return numbers.filter((el) => el % 2 === 1)
+    return numbers.filter((value) => value % 2 === 1)
 };
 
 
@@ -35,7 +35,7 @@ const getOddValues = numbers => {
  * [4,2,10,27] => 2
  */
 const getSmallestValue = numbers => {
-    return numbers.reduce((min, el) => el < min ? el : min, numbers[0])
+    return numbers.reduce((min, value) => value < min ? value : min, numbers[0])
 };
 
 
@@ -46,7 +46,7 @@ const getSmallestValue = numbers => {
  * [5,22,9,43] => 43
  */
 const getBiggestValue = numbers => {
-    return numbers.reduce((max, el) => el > max ? el : max, numbers[0])
+    return numbers.reduce((max, value) => value > max ? value : max, numbers[0])
 };
 
 
@@ -89,7 +89,7 @@ const getShorterStrings = (strings, characters = 20) => {
  * Use: map
  */
 const getComputedStrings = fish => {
-    return fish.map(el => el.name + ' likes ' + el.likes)
+    return fish.map(item => item.name + ' likes ' + item.likes)
 };
 
 
@@ -130,10 +130,7 @@ const getSmallestValue2 = numbers => {
  * Use: reduce
  */
 const getOddValues2 = numbers => {
-    return numbers.reduce((array, el) => {
-        el % 2 === 1 ? array.push(el) : null;
-        return array;
-    }, [])
+    return numbers.reduce((array, value) => value % 2 === 1 ? [...array, value] : array, [])
 };
 
 
@@ -155,7 +152,7 @@ const getOddValues2 = numbers => {
  * Use: reduce
  */
 const calculateTotal = products => {
-    return products.reduce((total, el) => total + el.price * el.count, 0)
+    return products.reduce((total, item) => total + item.price * item.count, 0)
 };
 
 
@@ -168,10 +165,7 @@ const calculateTotal = products => {
  * Use: reduce and indexOf
  */
 const getUniqueValues = numbers => {
-    return numbers.reduce((array, el, index) => {
-        numbers.indexOf(el) === index ? array.push(el) : null;
-        return array
-    }, [])
+    return numbers.reduce((array, value, index) => numbers.indexOf(value) === index ? [...array, value] : array, [])
 };
 
 
@@ -230,7 +224,10 @@ const get2SmallestValues = numbers => {
  * output line with the message 'Name: Peter Ivanovich Vasiliev'
  */
 const getFullName = user => {
-    return 'Name: ' + (user.firstName ? user.firstName + ' ' : '') + (user.patronymic ? user.patronymic + ' ' : '') + (user.secondName ? user.secondName : '')
+    return 'Name: '
+        + (user.firstName ? user.firstName + ' ' : '')
+        + (user.patronymic ? user.patronymic + ' ' : '')
+        + (user.secondName ? user.secondName : '')
 };
 
 
@@ -245,7 +242,7 @@ const getFullName = user => {
  * Use: map
  */
 const multiplyTo = (numbers, multiplier) => {
-    return numbers.map(el => el * multiplier)
+    return numbers.map(value => value * multiplier)
 };
 
 
@@ -267,8 +264,10 @@ const multiplyTo = (numbers, multiplier) => {
  * Use: filter, map, join
  */
 const getCharacterNames = (characters, franchise) => {
-    const franchise_characters = characters.filter(character => character.franchise === franchise)
-    return franchise_characters.map(character => character.name).join(', ')
+    return characters
+        .filter(character => character.franchise === franchise)
+        .map(character => character.name)
+        .join(', ')
 };
 
 
@@ -286,11 +285,7 @@ const getCharacterNames = (characters, franchise) => {
  * => [1,2,3,4]
  */
 const getSmallestRow = numbers => {
-    const result_row = []
-
-    numbers.forEach(row => result_row.push(Math.min(...row)))
-
-    return result_row
+    return numbers.map(row => Math.min(...row))
 };
 
 
@@ -337,13 +332,8 @@ const get2BiggestValues = numbers => {
  * 'Return the number (count) of vowels in the given string.' => 15
  */
 const getNumberOfVowels = string => {
-    let count_vowels = 0;
-
-    [...string.toLowerCase()].forEach(letter => ['a', 'e', 'i', 'o', 'u'].includes(letter) ? count_vowels++ : null)
-
-    return count_vowels
+    return [...string.toLowerCase()].reduce((count, letter) => ['a', 'e', 'i', 'o', 'u'].includes(letter) ? count + 1 : count, 0)
 };
-
 
 /**
  * Exercise 20
@@ -390,13 +380,12 @@ const getCapitalizedStrings = string => {
  * S consists only of lowercase letters [a-z]
  */
 const getCorrectString = string => {
-    let result_string = '';
-
-    [...string].forEach((letter, index) => {
-        (string[index + 1] === letter && string[index + 2] !== letter) || (string[index + 1] !== letter) ? result_string += letter : null
-    })
-
-    return result_string
+    return [...string].reduce(
+        (result, letter, index) =>
+            (string[index + 1] === letter && string[index + 2] !== letter) || (string[index + 1] !== letter)
+                ? result + letter
+                : result
+        , '')
 };
 
 
@@ -420,10 +409,8 @@ const getFlattenedArray = numbers => {
  * [1, 2, 2, 4, 5, 5] => [2, 5]
  */
 const getNotUniqueValues = numbers => {
-    return numbers.reduce((array, el, index) => {
-        (numbers.indexOf(el) !== index) && (!array.includes(el)) ? array.push(el) : null;
-        return array
-    }, [])
+    return numbers.reduce((array, value, index) =>
+        (numbers.indexOf(value) !== index) && (!array.includes(value)) ? [...array, value] : array, [])
 };
 
 
