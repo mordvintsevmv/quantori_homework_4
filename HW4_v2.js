@@ -305,7 +305,10 @@ const getSmallestColumn = numbers => {
     const result_column = []
 
     numbers.forEach(row => {
-        row.forEach((num, index) => (num < result_column[index] || (!result_column[index])) ? result_column[index] = num : null)
+        row.forEach((num, index) =>
+            (num < result_column[index] || (!result_column[index]))
+                ? result_column[index] = num
+                : null)
     })
 
     return result_column
@@ -332,7 +335,12 @@ const get2BiggestValues = numbers => {
  * 'Return the number (count) of vowels in the given string.' => 15
  */
 const getNumberOfVowels = string => {
-    return [...string.toLowerCase()].reduce((count, letter) => ['a', 'e', 'i', 'o', 'u'].includes(letter) ? count + 1 : count, 0)
+    return [...string.toLowerCase()]
+        .reduce((count, letter) =>
+            ['a', 'e', 'i', 'o', 'u'].includes(letter)
+                ? count + 1
+                : count
+            , 0)
 };
 
 /**
@@ -344,20 +352,16 @@ const getNumberOfVowels = string => {
  * 'abcdef' => ['AbCdEf', 'aBcDeF']
  */
 const getCapitalizedStrings = string => {
-    let odd_string = '';
-    let even_string = '';
-
-    [...string].forEach((letter, index) => {
+    return [...string].reduce((result, letter, index) => {
         if (index % 2 === 1) {
-            odd_string += letter.toUpperCase()
-            even_string += letter.toLowerCase()
+            result[0] += letter.toLowerCase()
+            result[1] += letter.toUpperCase()
         } else {
-            odd_string += letter.toLowerCase()
-            even_string += letter.toUpperCase()
+            result[0] += letter.toUpperCase()
+            result[1] += letter.toLowerCase()
         }
-    })
-
-    return [even_string, odd_string]
+        return result
+    },['',''])
 };
 
 
@@ -410,7 +414,10 @@ const getFlattenedArray = numbers => {
  */
 const getNotUniqueValues = numbers => {
     return numbers.reduce((array, value, index) =>
-        (numbers.indexOf(value) !== index) && (!array.includes(value)) ? [...array, value] : array, [])
+        (numbers.indexOf(value) !== index) && (!array.includes(value))
+            ? [...array, value]
+            : array
+        , [])
 };
 
 
