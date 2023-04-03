@@ -135,7 +135,7 @@ Before counting vowels in string, it is necessary to change string register so t
 **Example:**
 
 ```javascript
-[...string].toLowerCase()...
+[...string.toLowerCase()]...
 ```
 
 ---
