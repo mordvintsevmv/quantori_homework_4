@@ -28,9 +28,8 @@ npm test
 
 1. [Task](#Task)
 2. [Solutions](#solutions)
-    1. [Exercises](#solutions-exercises)
-    2. [Tests](#solutions-tests)
-2. [Branches](#branches)
+   1. [Exercises](#solutions-exercises)
+   2. [Tests](#solutions-tests)s)
 3. [Contacts](#contacts)
 
 ---
@@ -98,7 +97,7 @@ console.log(Math.min(...[])); // Infinity
 console.log(Math.max(...[])); // -Infinity
 ```
 
-Therefore, it was decided to check the length of the array before searching for the required value.
+Therefore, it was decided to check the length of the array before searching for the required value. 
 In case of an empty array, `undefined` is returned
 
 **Example:**
