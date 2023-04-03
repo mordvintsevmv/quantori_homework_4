@@ -125,7 +125,7 @@ describe('getBiggestValue', () => {
     });
 
     test('should return the biggest value even if there are negative numbers in the array', () => {
-        const numbers = [5, -22, 9, -43];
+        const numbers = [5, -22, 9, -403];
         const expected = 9;
         const result = getBiggestValue(numbers);
         expect(result).toEqual(expected);
@@ -832,6 +832,20 @@ describe("getCorrectString", () => {
         expect(result).toEqual(expected);
     });
 
+    test("should remove all repeated letters 3", () => {
+        const string = 'uauauauauauauauauau';
+        const expected = 'uauauauauauauauauau';
+        const result = getCorrectString(string);
+        expect(result).toEqual(expected);
+    });
+
+    test("should remove all repeated letters 4", () => {
+        const string = 'uuauuauuauuaauuaauuaauauauuu';
+        const expected = 'uuauuauuauuaauuaauuaauauauu';
+        const result = getCorrectString(string);
+        expect(result).toEqual(expected);
+    });
+
     test("should not remove any letters", () => {
         const string = 'abcdefg';
         const expected = 'abcdefg';
@@ -913,6 +927,13 @@ describe('getNotUniqueValues', () => {
 
     test('returns an array of not unique values 2', () => {
         const numbers = [1, 2, 3, 4, 5, 6, 7, 6, 5, 4, 3];
+        const expected = [3, 4, 5, 6];
+        const result = getNotUniqueValues(numbers);
+        expect(result.sort()).toEqual(expected.sort());
+    });
+
+    test('returns an array of not unique values 3', () => {
+        const numbers = [1, 2, 3, 4, 5, 6, 7, 6, 5, 4, 3, 4, 5, 6, 5, 4, 3];
         const expected = [3, 4, 5, 6];
         const result = getNotUniqueValues(numbers);
         expect(result.sort()).toEqual(expected.sort());
