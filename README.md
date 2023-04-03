@@ -160,6 +160,18 @@ return [...numbers].sort...
 
 ### <a name="solutions-tests">Tests</a>
 
+All tests are presented in the `tests/functions.test.js` file.
+
+**Almost every test checks the conditions:**
+- Example values;
+- Empty values;
+- Boundary Values;
+- Function is pure.
+
+All implemented tests were successfully passed:
+
+![Tests](readme-img/tests.png)
+
 ---
 
 ## <a name="branches">Branches</a>
