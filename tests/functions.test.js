@@ -36,7 +36,7 @@ describe('getOddValues', () => {
     });
 
     test('should return an empty array if there are no odd values', () => {
-        const numbers = [2, 4, 6, 8, 10];
+        const numbers = [0, 2, 4, 6, 8, 10];
         const expected = [];
         const result = getOddValues(numbers);
         expect(result).toEqual(expected);
@@ -294,7 +294,7 @@ describe('getOddValues2', () => {
     });
 
     test('should return an empty array if there are no odd numbers', () => {
-        const numbers = [2, 4, 6, 8];
+        const numbers = [0, 2, 4, 6, 8];
         const expected = [];
         const result = getOddValues2(numbers);
         expect(result).toEqual(expected);
@@ -369,6 +369,13 @@ describe('getUniqueValues', () => {
         expect(result).toEqual(expected);
     });
 
+    test('should return an array with unique values 4', () => {
+        const numbers = [1, 2, 3, 4, 3, 2, 1, 1, 2, 3, 4, 3, 2, 1, 1, 2, 3, 4];
+        const expected = [1, 2, 3, 4];
+        const result = getUniqueValues(numbers);
+        expect(result).toEqual(expected);
+    });
+
     test('should return an empty array if input is empty', () => {
         const numbers = [];
         const expected = [];
@@ -384,10 +391,10 @@ describe('getUniqueValues', () => {
     });
 
     test('should return a new array and not modify the original array', () => {
-        const numbers = [5, 22, 9, 43];
+        const numbers = [1, 2, 3, 4, 3, 2, 1, 1, 2, 3, 4, 3, 2, 1, 1, 2, 3, 4];
         const result = getUniqueValues(numbers);
         expect(result).not.toBe(numbers);
-        expect(numbers).toEqual([5, 22, 9, 43]);
+        expect(numbers).toEqual([1, 2, 3, 4, 3, 2, 1, 1, 2, 3, 4, 3, 2, 1, 1, 2, 3, 4]);
     });
 });
 
@@ -452,9 +459,16 @@ describe('getErrorMessage', () => {
 Exercise 12
 */
 describe('get2SmallestValues', () => {
-    test('should return the 2 smallest values', () => {
+    test('should return the 2 smallest values 1', () => {
         const numbers = [4, 3, 2, 1];
         const expected = [1, 2];
+        const result = get2SmallestValues(numbers);
+        expect(result).toEqual(expected);
+    });
+
+    test('should return the 2 smallest values 2', () => {
+        const numbers = [200, -19, 0, 2, 50];
+        const expected = [-19, 0];
         const result = get2SmallestValues(numbers);
         expect(result).toEqual(expected);
     });
@@ -520,10 +534,18 @@ describe('getFullName', () => {
 Exercise 14
 */
 describe('multiplyTo', () => {
-    test('should multiply all numbers by the multiplier', () => {
+    test('should multiply all numbers by the multiplier 1', () => {
         const numbers = [1, 2, 3, 4];
         const multiplier = 5;
         const expected = [5, 10, 15, 20];
+        const result = multiplyTo(numbers, multiplier);
+        expect(result).toEqual(expected);
+    });
+
+    test('should multiply all numbers by the multiplier 2', () => {
+        const numbers = [1, 2, 3, 4];
+        const multiplier = -5;
+        const expected = [-5, -10, -15, -20];
         const result = multiplyTo(numbers, multiplier);
         expect(result).toEqual(expected);
     });
@@ -585,11 +607,16 @@ describe('getCharacterNames', () => {
     });
 
     test('should return a new array and not modify the original array', () => {
-        const characters = [{name: 'Batman', franchise: 'DC'}, {name: 'Superman', franchise: 'DC'}];
+        const characters = [{name: 'Batman', franchise: 'DC'}, {name: 'Ironman', franchise: 'Marvel'}, {
+            name: 'Thor', franchise: 'Marvel'
+        }, {name: 'Superman', franchise: 'DC'}];
         const franchise = 'Marvel';
         const result = getCharacterNames(characters, franchise);
         expect(result).not.toBe(characters);
-        expect(characters).toEqual([{name: 'Batman', franchise: 'DC'}, {name: 'Superman', franchise: 'DC'}]);
+        expect(franchise).toEqual('Marvel');
+        expect(characters).toEqual([{name: 'Batman', franchise: 'DC'}, {name: 'Ironman', franchise: 'Marvel'}, {
+            name: 'Thor', franchise: 'Marvel'
+        }, {name: 'Superman', franchise: 'DC'}]);
     });
 });
 
@@ -608,6 +635,13 @@ describe('getSmallestRow', () => {
     test('returns an array with the smallest values of each row 2', () => {
         const numbers = [[10, 1, 300, 4]];
         const expected = [1];
+        const result = getSmallestRow(numbers);
+        expect(result).toEqual(expected);
+    });
+
+    test('returns an array with the smallest values of each row 3', () => {
+        const numbers = [[10, 1, 300, -4], [20, 2, 0, 400], [4, 3, 300, 4], [40, 4, -300, 4]];
+        const expected = [-4, 0, 3, -300];
         const result = getSmallestRow(numbers);
         expect(result).toEqual(expected);
     });
@@ -642,6 +676,19 @@ describe('getSmallestColumn', () => {
     test('returns an array of the smallest column values of a two-dimensional array 2', () => {
         const numbers = [[1, 8, 12, 15], [2, 7, 9, 14], [3, 6, 10, 13], [4, 5, 11, 16]];
         const expected = [1, 5, 9, 13];
+        const result = getSmallestColumn(numbers);
+        expect(result).toEqual(expected);
+    });
+
+    test('returns an array of the smallest column values of a two-dimensional array 3', () => {
+        const numbers = [
+            [1,   2,    88,  90, 100],
+            [100, 13,   5,   7,  100],
+            [200, 123,  -12, 0,  0],
+            [300, -120, -14, 0,  100],
+            [-10, 500,  0,   1,  100],
+        ];
+        const expected = [ -10, -120, -14, 0, 0 ];
         const result = getSmallestColumn(numbers);
         expect(result).toEqual(expected);
     });
@@ -681,8 +728,8 @@ describe('get2BiggestValues', () => {
     });
 
     test('should return an array with the two biggest values 2', () => {
-        const numbers = [40, 300, -12, 250, 500, 7];
-        const expected = [500, 300];
+        const numbers = [40, 300, -5000, 25, 50, 7];
+        const expected = [300, 50];
         const result = get2BiggestValues(numbers);
         expect(result).toEqual(expected);
     });
@@ -846,6 +893,13 @@ describe("getCorrectString", () => {
         expect(result).toEqual(expected);
     });
 
+    test("should remove all repeated letters 5", () => {
+        const string = 'uuuuuuuuuuuuuuuuu';
+        const expected = 'uu';
+        const result = getCorrectString(string);
+        expect(result).toEqual(expected);
+    });
+
     test("should not remove any letters", () => {
         const string = 'abcdefg';
         const expected = 'abcdefg';
@@ -935,6 +989,13 @@ describe('getNotUniqueValues', () => {
     test('returns an array of not unique values 3', () => {
         const numbers = [1, 2, 3, 4, 5, 6, 7, 6, 5, 4, 3, 4, 5, 6, 5, 4, 3];
         const expected = [3, 4, 5, 6];
+        const result = getNotUniqueValues(numbers);
+        expect(result.sort()).toEqual(expected.sort());
+    });
+
+    test('returns an array of not unique values 4', () => {
+        const numbers = [0,1,0,2,0,0,3,0,4,0,5,0,5,-1,-1];
+        const expected = [0,5,-1];
         const result = getNotUniqueValues(numbers);
         expect(result.sort()).toEqual(expected.sort());
     });
