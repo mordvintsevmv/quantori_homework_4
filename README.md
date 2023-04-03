@@ -29,7 +29,7 @@ npm test
 1. [Task](#Task)
 2. [Solutions](#solutions)
    1. [Exercises](#solutions-exercises)
-   2. [Tests](#solutions-tests)s)
+   2. [Tests](#solutions-tests)
 3. [Contacts](#contacts)
 
 ---
