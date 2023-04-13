@@ -30,7 +30,6 @@ npm test
 2. [Solutions](#solutions)
    1. [Exercises](#solutions-exercises)
    2. [Tests](#solutions-tests)
-2. [Branches](#branches)
 3. [Contacts](#contacts)
 
 ---
@@ -53,14 +52,14 @@ conditions were set under which the task would be considered successfully comple
 - The function works correctly when changing the order of numbers (for array) or when changing the case of letters (for string), etc;
 - The function should be pure - the input values should not change after using the function.
 
-To fulfill all the criteria, more than 100 autotests have been developed using the Jest library, 
+To fulfill all the criteria, more than 100 autotests have been developed using the Jest library,
 which check all the necessary conditions.
 
 ---
 
 ### <a name="solutions-exercises">Exercises</a>
 
-For some functions, no conditions were set for specific values. 
+For some functions, no conditions were set for specific values.
 Therefore, it was decided to develop various exceptions and perform some additional checks by myself.
 
 ---
@@ -73,7 +72,7 @@ In these exercises, the `.reduce()` method was used, since `Math.min()` must be 
 
 #### Exercises 4
 
-The task says that it is necessary to leave strings **shorter** than 20 characters. 
+The task says that it is necessary to leave strings **shorter** than 20 characters.
 Therefore, it was decided that a string of exactly 20 characters in length would not remain in the array.
 
 Example:
@@ -90,7 +89,7 @@ const expected = [];
 
 #### Exercises 7
 
-If we use `Math.min` or `Math.max` on an empty array with the spread operator, 
+If we use `Math.min` or `Math.max` on an empty array with the spread operator,
 then it will return us Infinity:
 
 ```javascript
@@ -112,7 +111,7 @@ In case of an empty array, `undefined` is returned
 
 #### Exercises 13
 
-There are situations when a person does not have a patronymic or does not want to give a surname. 
+There are situations when a person does not have a patronymic or does not want to give a surname.
 Therefore, instead of simply concatenating the fields, it was decided to check for their existence:
 
 ```javascript
@@ -144,7 +143,7 @@ Before counting vowels in string, it is necessary to change string register so t
 
 In order for the function to be pure and not change the input data, it is necessary to monitor the methods used.
 
-`.map()` method does not modify the array, but returns a new one. Therefore, it can be used: 
+`.map()` method does not modify the array, but returns a new one. Therefore, it can be used:
 
 ```javascript
 return numbers.map(row => Math.min(...row))
